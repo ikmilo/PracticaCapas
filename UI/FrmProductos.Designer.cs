@@ -1,4 +1,4 @@
-﻿namespace UI
+namespace UI
 {
     partial class FrmProductos
     {
@@ -52,13 +52,14 @@
             // 
             // btnListar
             // 
-            btnListar.Enabled = false;
+            btnListar.Enabled = true;
             btnListar.Location = new Point(12, 48);
             btnListar.Name = "btnListar";
             btnListar.Size = new Size(100, 31);
             btnListar.TabIndex = 1;
             btnListar.Text = "Listar";
             btnListar.UseVisualStyleBackColor = true;
+            btnListar.Click += btnListar_Click;
             // 
             // btnAgregar
             // 

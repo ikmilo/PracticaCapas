@@ -32,20 +32,26 @@ namespace DAL.DAO
 
         public List<Producto> Getall()
         {
-            using (SqlConnection conexion = new SqlConnection(ConexionDAO.ConnectionString))
-            {
-                string query = "SELECT Id, Nombre, Precio, Stock FROM dbo.Productos ORDER BY Id;";
+            DataTable tabla = new DataTable();
 
-                using (SqlCommand comando = new SqlCommand(query, conexion))
+            using (SqlConnection conexion = new SqlConnection())
+            {
+                conexion.ConnectionString = ConexionDAO.ConnectionString;
+
+                using (SqlCommand comando = new SqlCommand())
                 {
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(comando))
+                    comando.Connection = conexion;
+                    comando.CommandText = "SELECT Id, Nombre, Precio, Stock FROM dbo.Productos ORDER BY Id;";
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter())
                     {
-                        DataTable tabla = new DataTable();
+                        adapter.SelectCommand = comando;
+                        adapter.Fill(tabla);
                     }
                 }
             }
 
-            return new List<Producto>();
+            return _mapper.Map(tabla);
         }
 
         public int Update(Producto entidad)

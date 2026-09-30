@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 using BE;
 using BE.SharedInterfaces;
 
+using DAL.DAO;
+
 namespace BLL
 {
     public class ProductoBLL : ICrud<Producto>
     {
+        private ICrud<Producto> _productoDAO = new ProductoDAO();
+
         public int Add(Producto entidad)
         {
             throw new NotImplementedException();
@@ -18,7 +22,7 @@ namespace BLL
 
         public List<Producto> Getall()
         {
-            throw new NotImplementedException();
+            return _productoDAO.Getall();
         }
 
         public int Update(Producto entidad)

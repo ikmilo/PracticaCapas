@@ -9,7 +9,7 @@ namespace DAL.DAO
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
             {
-                DataSource = ".", 
+                DataSource = @"(localdb)\MSSQLLocalDB", 
                 InitialCatalog = "PracticaCapas",
                 IntegratedSecurity = true,
                 TrustServerCertificate = true
@@ -18,12 +18,6 @@ namespace DAL.DAO
             return builder.ConnectionString;
         }
 
-        public static string ConnectionString
-        {
-            get
-            {
-                return ArmarCadenaConexion();
-            }
-        }
+        public static string ConnectionString { get; } = ArmarCadenaConexion();
     }
 }
