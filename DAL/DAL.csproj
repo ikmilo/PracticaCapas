@@ -8,11 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mapper\" />
-    <Folder Include="DAO\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj" />
   </ItemGroup>
 
