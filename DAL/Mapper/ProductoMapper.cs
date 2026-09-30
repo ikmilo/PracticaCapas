@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -10,27 +10,8 @@ using BE.SharedInterfaces;
 
 namespace DAL.Mapper
 {
-    internal class ProductoMapper : ICrud<Producto>
+    internal class ProductoMapper
     {
-        public int Add(Producto entidad)
-        {
-            throw new NotImplementedException();
-        }
-        
-        public List<Producto> Getall()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Update(Producto entidad)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
 
         public List<Producto> Map(DataTable table) 
         {
