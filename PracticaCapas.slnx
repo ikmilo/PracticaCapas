@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="PracticaCapas.csproj" />
+  <Project Path="BE/BE.csproj" Id="ed1f9fe8-1682-48dd-9e33-71a54e678445" />
+  <Project Path="BLL/BLL.csproj" Id="e8c2a236-2ccb-4310-8cad-58da94d915f1" />
+  <Project Path="DAL/DAL.csproj" Id="b6ff0b7e-5922-41f6-8a69-9187acf8471b" />
+  <Project Path="UI/UI.csproj" Id="d0bfc413-2ecf-4680-a957-609b073dde0b" />
 </Solution>
