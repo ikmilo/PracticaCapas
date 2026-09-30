@@ -14,6 +14,8 @@ namespace DAL.DAO
 
         public int Add(Producto entidad)
         {
+            int filasAfectadas = 0;
+
             using (SqlConnection conexion = new SqlConnection(ConexionDAO.ConnectionString))
             {
                 string query = "INSERT INTO dbo.Productos (Nombre, Precio, Stock) VALUES (@Nombre, @Precio, @Stock);";
@@ -24,10 +26,12 @@ namespace DAL.DAO
                     comando.Parameters.AddWithValue("@Precio", entidad.Precio);
                     comando.Parameters.AddWithValue("@Stock", entidad.Stock);
 
+                    conexion.Open();
+                    filasAfectadas = comando.ExecuteNonQuery();
                 }
             }
 
-            return 0;
+            return filasAfectadas;
         }
 
         public List<Producto> Getall()
@@ -56,6 +60,8 @@ namespace DAL.DAO
 
         public int Update(Producto entidad)
         {
+            int filasAfectadas = 0;
+
             using (SqlConnection conexion = new SqlConnection(ConexionDAO.ConnectionString))
             {
                 string query = "UPDATE dbo.Productos SET Nombre = @Nombre, Precio = @Precio, Stock = @Stock WHERE Id = @Id;";
@@ -67,14 +73,18 @@ namespace DAL.DAO
                     comando.Parameters.AddWithValue("@Precio", entidad.Precio);
                     comando.Parameters.AddWithValue("@Stock", entidad.Stock);
 
+                    conexion.Open();
+                    filasAfectadas = comando.ExecuteNonQuery();
                 }
             }
 
-            return 0;
+            return filasAfectadas;
         }
 
         public int Delete(int id)
         {
+            int filasAfectadas = 0;
+
             using (SqlConnection conexion = new SqlConnection(ConexionDAO.ConnectionString))
             {
                 string query = "DELETE FROM dbo.Productos WHERE Id = @Id;";
@@ -83,10 +93,12 @@ namespace DAL.DAO
                 {
                     comando.Parameters.AddWithValue("@Id", id);
 
+                    conexion.Open();
+                    filasAfectadas = comando.ExecuteNonQuery();
                 }
             }
 
-            return 0;
+            return filasAfectadas;
         }
     }
 }
